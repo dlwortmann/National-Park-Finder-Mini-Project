@@ -16,4 +16,4 @@ app.use(express.json());
 app.use(routes);
 
 // Start the server on the port
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+app.listen(PORT, () => console.log(`Listening on PORT: http://localhost:${PORT}`));

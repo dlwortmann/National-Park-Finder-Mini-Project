@@ -54,10 +54,14 @@ API Calls
 // * Function to get parks by state
 const getParksByState = async (state: string) => {
   try {
+    const response = await fetch(`/api/parks/${state}`);
+    const parks = await response.json();
+    console.log('Parks:', parks);
+    return parks;
     //TODO: update this function to take in the name of a state and fetch all national parks in that state.  Return the resulting array of parks.
-    console.log(
-      'complete the `getParksByState` function in cilent/src/main.ts'
-    );
+    //console.log(
+    //  'complete the `getParksByState` function in cilent/src/main.ts'
+    //);
   } catch (err) {
     console.log('Error:', err);
     return err;
@@ -66,24 +70,45 @@ const getParksByState = async (state: string) => {
 
 //*Function to delete state from history
 const deledStateFromHistory = async (id: string) => {
+  const response = await fetch(`/api/history/${id}`, {
+    method: 'DELETE', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  }
+)
+  return response;
   //TODO: update this function to take in the id of a saved state and delete that state from search history.
-  console.log(
-    'complete the `deleteStateFromHistory` function in cilent/src/main.ts'
-  );
+  //console.log(
+  //  'complete the `deleteStateFromHistory` function in cilent/src/main.ts'
+  //);
 };
 
 // * Function to get future events by state
 
 const getEventsByState = async (state: string) => {
+  try {
+    const response = await fetch(`/api/parks/events/${state}`);
+    const events = await response.json();
+    console.log('Events:', events);
+    return events;
+  } catch (err) {
+    console.log('Error', err);
+    return err
+  }
   //TODO: update this function to take in a state and fetch all events happening in national parks in that state. Return the resulting array of events.
-  console.log('complete the `getEventsByState` function in cilent/src/main.ts');
+  //console.log('complete the `getEventsByState` function in cilent/src/main.ts');
 };
 // * Function to get saved searches
 
 const getHistory = async () => {
   try {
+    const response = await fetch(`/api/history/`);
+    const history = await response.json();
+    console.log('History:', history);
+    return history;
     //TODO: update this function to fetch all previously searched states. Return the resulting array of states.
-    console.log('complete the `getHistory` function in cilent/src/main.ts');
+    //console.log('complete the `getHistory` function in cilent/src/main.ts');
   } catch (err) {
     console.log('Error:', err);
     return err;
