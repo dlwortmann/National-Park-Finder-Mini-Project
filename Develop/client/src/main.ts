@@ -55,7 +55,7 @@ API Calls
 const getParksByState = async (state: string) => {
   try {
     const response = await fetch(`/api/parks/${state}`);
-    const parks = await response.json();
+    const parks:Park[] = await response.json();
     console.log('Parks:', parks);
     return parks;
     //TODO: update this function to take in the name of a state and fetch all national parks in that state.  Return the resulting array of parks.
@@ -104,8 +104,9 @@ const getEventsByState = async (state: string) => {
 const getHistory = async () => {
   try {
     const response = await fetch(`/api/history/`);
-    const history = await response.json();
+    const history:State[] = await response.json();
     console.log('History:', history);
+
     return history;
     //TODO: update this function to fetch all previously searched states. Return the resulting array of states.
     //console.log('complete the `getHistory` function in cilent/src/main.ts');

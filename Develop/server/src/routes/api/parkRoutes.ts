@@ -3,7 +3,7 @@ const router = Router();
 
 import HistoryService from '../../service/historyService.js';
 import ParkService from '../../service/parkService.js';
-
+// /api/parks -- gets to these routes
 router.get('/:state', async (req, res) => {
   try {
     const stateName = req.params.state;

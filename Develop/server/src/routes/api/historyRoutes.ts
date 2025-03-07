@@ -3,7 +3,7 @@ const router = Router();
 
 import HistoryService from '../../service/historyService.js';
 import historyService from '../../service/historyService.js';
-
+// /api/history -- gets to these routes
 router.get('/', async (_req, res) => {
   try {
     const savedStates = await HistoryService.getStates();
